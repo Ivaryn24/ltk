@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Kibaale Full Gospel Church</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Same style as index.html -->
+    <style>
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #1e1b18;
+        }
+        /* Navigation */
+         .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 45px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+         .navbar-brand img {
+                height: 35px;
+            }
+        .profile-pic {
+          width: 70px; /* Adjust the size as needed */
+          height: 70px;
+          border-radius: 50%; /* Make it circular */
+          margin-right: 10px; /* Add some space between the image and text */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/lgc.png" alt="Kibaale Full Gospel Church Logo" class="profile-pic">
+                Kibaale Full Gospel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ministries.html">Ministries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contributions.html">Contributions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Page Header -->
+    <section class="hero-section" style="padding: 100px 0; background-image: linear-gradient(rgba(10, 36, 99, 0.8), rgba(10, 36, 99, 0.6)), url('img/im1\ \(6\).jpg');">
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold text-white">About Our Church</h1>
+            <p class="lead text-white">Discover who we are and what we believe</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h2 class="section-title text-start mb-4">Our History</h2>
+                            <p class="lead">Founded in 1993, Kibaale Full Gospel Church began as a small prayer group meeting in a local home.</p>
+                            <p>Through God's faithfulness and the dedication of our members, we've grown into a vibrant community of believers serving Kibaale Town and surrounding areas.</p>
+                            <p>In 2002, we constructed our first permanent church building, and in 2015 we expanded to accommodate our growing congregation.</p>
+                            <div class="mt-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                        <i class="fas fa-church text-primary fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0">1500+ Members</h5>
+                                        <p class="text-muted mb-0">Serving our community</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                        <i class="fas fa-hands-helping text-primary fa-2x"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-0">12 Ministries</h5>
+                                        <p class="text-muted mb-0">Meeting diverse needs</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h2 class="section-title text-start mb-4">Our Beliefs</h2>
+                            <div class="accordion" id="beliefsAccordion">
+                                <div class="accordion-item mb-3 border-0">
+                                    <h3 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                            The Bible
+                                        </button>
+                                    </h3>
+                                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#beliefsAccordion">
+                                        <div class="accordion-body">
+                                            We believe the Bible is the inspired, infallible Word of God and the final authority for faith and life.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-3 border-0">
+                                    <h3 class="accordion-header" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                            The Trinity
+                                        </button>
+                                    </h3>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#beliefsAccordion">
+                                        <div class="accordion-body">
+                                            We believe in one God eternally existing in three persons: Father, Son, and Holy Spirit.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item mb-3 border-0">
+                                    <h3 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                            Salvation
+                                        </button>
+                                    </h3>
+                                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#beliefsAccordion">
+                                        <div class="accordion-body">
+                                            We believe salvation is by grace through faith in Jesus Christ, not by works.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item border-0">
+                                    <h3 class="accordion-header" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                            The Church
+                                        </button>
+                                    </h3>
+                                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#beliefsAccordion">
+                                        <div class="accordion-body">
+                                            We believe the Church is the body of Christ, called to worship God and serve the world.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title mb-5">Our Leadership</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="img/pr1.png" class="card-img-top" alt="Bishop Gabriel">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Pastor Gabriel Mugabo</h4>
+                            <p class="text-muted">Senior Pastor</p>
+                            <p class="card-text">Serving since 2005, Bishop Gabriel has a heart for discipleship and community transformation.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read Bio</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="img/associate.jpeg" class="card-img-top" alt="Pastor Sarah">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Pastor Musingunzi Dominic</h4>
+                            <p class="text-muted">Associate Pastor</p>
+                            <p class="card-text">minister with passion and dedication.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read Bio</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <img src="img/decon.jpeg" class="card-img-top" alt="Deacon David">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">Deacon Ellen Ndembe Kirya</h4>
+                            <p class="text-muted">Church Elder</p>
+                            <p class="card-text">Providing spiritual and administrative leadership to our church council.</p>
+                            <a href="#" class="btn btn-sm btn-outline-primary">Read Bio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Same Footer as index.html -->
+    <footer class="footer" id="contact">
+        <!-- Copy the same footer from index.html -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

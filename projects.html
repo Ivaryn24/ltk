@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom Vocational Training Institute - Kibaale Full Gospel Church</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #1e1b18;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 70px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 45px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(10, 36, 99, 0.8), rgba(10, 36, 99, 0.6)), 
+                        url('img/k3.jfif') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-weight: 400;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        /* Course Cards */
+        .course-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .course-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: block;
+            text-align: center;
+        }
+        
+        .course-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .course-body {
+            padding: 2rem;
+            background: white;
+        }
+        
+        .course-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .course-fee {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        /* Brass Band Section */
+        .brass-band-section {
+            background: linear-gradient(rgba(6, 35, 104, 0.8), rgba(6, 35, 104, 0.8)), 
+                        url('img/b1.jfif') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 80px 0;
+            border-radius: 12px;
+            margin: 4rem 0;
+        }
+        
+        .brass-band-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .brass-band-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer h4 {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .footer p, .footer a {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .map-container {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 0.6rem 1.8rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .brass-band-title {
+                font-size: 2rem;
+            }
+        }
+        
+        .profile-pic {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/lgc.png" alt="Kibaale Full Gospel Church Logo" class="profile-pic">
+                Kibaale Full Gospel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ministries.html">Ministries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contributions.html">Contributions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title display-3">KINGDOM VOCATIONAL TRAINING INSTITUTE</h1>
+            <h3 class="hero-subtitle">Empowering Lives Through Skills Development</h3>
+            <a href="#courses" class="btn btn-primary btn-lg px-4 py-2">Explore Our Courses</a>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">About Our Vocational Institute</h2>
+                        <p class="lead">Kingdom Vocational Training Institute is a project of Kibaale Full Gospel Church, dedicated to empowering individuals with practical skills for sustainable livelihoods. We are certified by the Directorate of Industrial Training (DIT), a government body responsible for vocational training.</p>
+                        <p class="lead">Our mission is to provide quality vocational training that transforms lives and communities through skills development, character building, and spiritual growth.</p>
+                    </div>
+                    
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-check-circle text-success me-3 fs-4"></i>
+                                <div>
+                                    <h5>Government Certified</h5>
+                                    <p class="mb-0">Certified by DIT (Directorate of Industrial Training)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-graduation-cap text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h5>Beginner Friendly</h5>
+                                    <p class="mb-0">No prior experience required - we train from scratch</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-hand-holding-usd text-warning me-3 fs-4"></i>
+                                <div>
+                                    <h5>Affordable Fees</h5>
+                                    <p class="mb-0">All courses available at UGX 160,000 per session</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-users text-info me-3 fs-4"></i>
+                                <div>
+                                    <h5>Community Focused</h5>
+                                    <p class="mb-0">Transforming communities through skills development</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Vocational Courses</h2>
+            <p class="text-center mb-5">All courses are available at UGX 160,000 per session</p>
+            
+            <div class="row">
+                <!-- Hairdressing -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-cut course-icon"></i>
+                            <h3 class="course-title">Hairdressing</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Learn professional hairdressing skills including braiding, styling, and hair care. Our comprehensive course covers both traditional and modern techniques to prepare you for a successful career in the beauty industry.</p>
+                            <p><strong>Course Content:</strong> Hair braiding, styling, chemical treatments, salon management</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tailoring -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-tshirt course-icon"></i>
+                            <h3 class="course-title">Tailoring</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Master the art of clothing design and construction. Learn to create various garments using different fabrics and sewing techniques. Our course includes both hand sewing and machine operation skills.</p>
+                            <p><strong>Course Content:</strong> Pattern making, garment construction, fabric selection, sewing machine operation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Embroidery -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-th course-icon"></i>
+                            <h3 class="course-title">Embroidery</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Learn the beautiful art of embroidery to create decorative designs on fabrics. This course covers both hand embroidery and machine embroidery techniques for creating intricate patterns and designs.</p>
+                            <p><strong>Course Content:</strong> Hand embroidery, machine embroidery, design creation, fabric types</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Computer Studies -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-laptop course-icon"></i>
+                            <h3 class="course-title">Computer Studies</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Gain essential computer skills for today's digital world. Learn basic computer operations, software applications, internet usage, and digital literacy to enhance your employability in various sectors.</p>
+                            <p><strong>Course Content:</strong> Computer basics, MS Office, internet skills, digital communication</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sweater Knitting -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-vest course-icon"></i>
+                            <h3 class="course-title">Sweater Knitting</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Learn the craft of sweater knitting using various techniques and materials. Create beautiful, warm garments for personal use or commercial purposes. This course covers both hand knitting and machine knitting.</p>
+                            <p><strong>Course Content:</strong> Knitting techniques, pattern reading, yarn selection, finishing methods</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hair Cutting -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-scissors course-icon"></i>
+                            <h3 class="course-title">Hair Cutting</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Specialize in professional hair cutting techniques for men, women, and children. Learn various cutting styles, tools usage, and salon hygiene practices to become a skilled hair stylist.</p>
+                            <p><strong>Course Content:</strong> Cutting techniques, styling tools, client consultation, sanitation practices</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Welding -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-tools course-icon"></i>
+                            <h3 class="course-title">Welding</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Master the skill of joining metals through various welding techniques. Learn to create metal structures, gates, windows, and other metal products. Safety procedures are emphasized throughout the course.</p>
+                            <p><strong>Course Content:</strong> Arc welding, gas welding, metal cutting, safety procedures</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charcoal Briquettes Making -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-fire course-icon"></i>
+                            <h3 class="course-title">Charcoal Briquettes Making</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Learn to produce eco-friendly charcoal briquettes from agricultural waste. This sustainable energy solution provides an income opportunity while addressing environmental concerns related to traditional charcoal.</p>
+                            <p><strong>Course Content:</strong> Material preparation, briquette production, drying techniques, marketing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Motor Cycle Mechanics -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-motorcycle course-icon"></i>
+                            <h3 class="course-title">Motor Cycle Mechanics</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Gain practical skills in motorcycle maintenance and repair. Learn to diagnose problems, perform routine maintenance, and repair various motorcycle systems to become a qualified motorcycle mechanic.</p>
+                            <p><strong>Course Content:</strong> Engine repair, electrical systems, brake systems, routine maintenance</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Catering -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-utensils course-icon"></i>
+                            <h3 class="course-title">Catering</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Learn professional cooking and food service skills. This course covers food preparation, menu planning, kitchen management, and presentation techniques for various catering occasions.</p>
+                            <p><strong>Course Content:</strong> Food preparation, menu planning, kitchen safety, presentation skills</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Brick Laying and Concrete Practice -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-home course-icon"></i>
+                            <h3 class="course-title">Brick Laying & Concrete Practice</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Master construction skills including bricklaying, concrete mixing, and basic construction techniques. Learn to read building plans and execute various construction projects with precision.</p>
+                            <p><strong>Course Content:</strong> Bricklaying, concrete mixing, construction planning, safety measures</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Plumbing -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-faucet course-icon"></i>
+                            <h3 class="course-title">Plumbing</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Learn essential plumbing skills for residential and commercial applications. This course covers pipe installation, fixture repair, drainage systems, and water supply solutions.</p>
+                            <p><strong>Course Content:</strong> Pipe fitting, fixture installation, drainage systems, repair techniques</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Phone Repairs -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <i class="fas fa-mobile-alt course-icon"></i>
+                            <h3 class="course-title">Mobile Phone & Electronics Repair</h3>
+                            <span class="course-fee">UGX 160,000</span>
+                        </div>
+                        <div class="course-body">
+                            <p>Learn to diagnose and repair mobile phones, radios, TVs, and other electronic devices. Gain practical skills in troubleshooting, component replacement, and electronic circuit understanding.</p>
+                            <p><strong>Course Content:</strong> Phone repair, circuit analysis, soldering, diagnostic techniques</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kingdom Brass Band Section -->
+    <section class="brass-band-section">
+        <div class="container">
+            <div class="brass-band-content">
+                <h2 class="brass-band-title">KINGDOM BRASS BAND</h2>
+                <p class="lead mb-4">Join our vibrant brass band and learn to play various musical instruments while praising God through music. The Kingdom Brass Band is an integral part of our church ministry, providing musical accompaniment for worship services, special events, and community celebrations.</p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="bg-white text-dark p-4 rounded mb-4">
+                            <h4 class="mb-3">What You'll Learn</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-music text-primary me-2"></i> Brass instrument techniques (trumpet, trombone, saxophone, etc.)</li>
+                                <li class="mb-2"><i class="fas fa-drum text-primary me-2"></i> Percussion and rhythm fundamentals</li>
+                                <li class="mb-2"><i class="fas fa-users text-primary me-2"></i> Ensemble playing and musical coordination</li>
+                                <li class="mb-2"><i class="fas fa-book text-primary me-2"></i> Music theory and reading</li>
+                                <li class="mb-2"><i class="fas fa-church text-primary me-2"></i> Worship music repertoire</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center">
+                            <div class="me-4">
+                                <h5 class="text-white">Course Fee</h5>
+                                <div class="course-fee">UGX 160,000</div>
+                            </div>
+                            <div>
+                                <h5 class="text-white">Duration</h5>
+                                <div class="bg-white text-dark px-3 py-2 rounded d-inline-block">Per Session</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">How to Register</h2>
+                    <p class="lead mb-4">Registration for all courses is now open. No prior experience is required - we welcome beginners and provide all necessary training from the basics.</p>
+                    
+                    <div class="row text-start">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <span class="fw-bold">1</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5>Visit Our Institute</h5>
+                                    <p>Come to Kibaale Full Gospel Church in Kibaale Town Council, Rakai District</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <span class="fw-bold">2</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5>Choose Your Course</h5>
+                                    <p>Select from our wide range of vocational courses</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <span class="fw-bold">3</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5>Pay Course Fees</h5>
+                                    <p>All courses are UGX 160,000 per session</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <span class="fw-bold">4</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5>Start Learning</h5>
+                                    <p>Begin your skills development journey with us</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h4 class="mb-3">Contact Us for More Information</h4>
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div class="me-4 mb-2">
+                                <i class="fas fa-phone me-2"></i> 0757622030
+                            </div>
+                            <div class="me-4 mb-2">
+                                <i class="fas fa-phone me-2"></i> 0783025221
+                            </div>
+                            <div class="me-4 mb-2">
+                                <i class="fas fa-phone me-2"></i> 0786544309
+                            </div>
+                            <div class="me-4 mb-2">
+                                <i class="fas fa-phone me-2"></i> 0758619606
+                            </div>
+                            <div class="mb-2">
+                                <i class="fas fa-phone me-2"></i> 0782619606
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Location</h4>
+                    <p>Kibaale Full Gospel Church is located in Kibaale Town council, Kibaale Ward, Rakai District.</p>
+                   
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone me-2"></i> +256 782619606</p>
+                    <p><i class="fas fa-phone me-2"></i> +256 758619606</p>
+                    <p><i class="fas fa-phone me-2"></i> +256 783025221</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@kibaalefullgospel.org</p>
+                    <p><i class="fas fa-clock me-2"></i> Sunday Services: 8:30 AM - 12:30 PM</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://www.facebook.com/share/1ARQ3gBTbP/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="http://www.youtube.com/@KibaaleFullGospelChurch-Rakai"><i class="fab fa-youtube"></i></a>
+                        <a href="https://chat.whatsapp.com/Lif49w9wIMqDA4ZQUSFgwe"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html"><i class="fas fa-chevron-right me-2"></i> Home</a></li>
+                        <li class="mb-2"><a href="about.html"><i class="fas fa-chevron-right me-2"></i> About Us</a></li>
+                        <li class="mb-2"><a href="ministries.html"><i class="fas fa-chevron-right me-2"></i> Ministries</a></li>
+                        <li class="mb-2"><a href="events.html"><i class="fas fa-chevron-right me-2"></i> Events</a></li>
+                        <li class="mb-2"><a href="services.html"><i class="fas fa-chevron-right me-2"></i> Services</a></li>
+                        <li class="mb-2"><a href="projects.html"><i class="fas fa-chevron-right me-2"></i> Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">&copy; 2023 Kibaale Full Gospel Church. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

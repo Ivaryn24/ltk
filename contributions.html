@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Our Ministries - Kibaale Full Gospel Church</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #1e1b18;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 70px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 45px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(10, 36, 99, 0.8), rgba(10, 36, 99, 0.6)), 
+                        url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-weight: 400;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Section Titles */
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        /* Contribution Cards */
+        .contribution-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .contribution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .contribution-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: block;
+            text-align: center;
+        }
+        
+        .contribution-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .contribution-body {
+            padding: 2rem;
+            background: white;
+        }
+        
+        .contribution-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .contribution-goal {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        /* Payment Methods */
+        .payment-methods {
+            margin-top: 2rem;
+        }
+        
+        .payment-method {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: 100%;
+        }
+        
+        .payment-method:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .payment-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer h4 {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .footer p, .footer a {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .map-container {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 0.6rem 1.8rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+        
+        .profile-pic {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+        
+        .bible-verse {
+            background-color: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            border-left: 5px solid var(--primary-color);
+            margin: 3rem 0;
+        }
+        
+        .payment-details {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/lgc.png" alt="Kibaale Full Gospel Church Logo" class="profile-pic">
+                Kibaale Full Gospel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ministries.html">Ministries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contributions.html">Contributions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title display-3">SUPPORT OUR MINISTRIES</h1>
+            <h3 class="hero-subtitle">Partner with us in building God's Kingdom</h3>
+            <a href="#contribute" class="btn btn-primary btn-lg px-4 py-2">Make a Contribution</a>
+        </div>
+    </section>
+
+    <!-- Bible Verse Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 bible-verse">
+                    <h2 class="mb-4 fw-bold">"EACH ONE MUST GIVE AS HE HAS DECIDED IN HIS HEART, NOT RELUCTANTLY OR UNDER COMPULSION, FOR GOD LOVES A CHEERFUL GIVER."</h2>
+                    <p class="text-end fst-italic fw-bold">2 Corinthians 9:7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Invest in God's Work</h2>
+                        <p class="lead">Your generous contributions enable us to continue our mission of transforming lives and communities through the power of the Gospel. We are grateful for your partnership in these vital ministry areas.</p>
+                    </div>
+                    
+                    <div class="row mb-5">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-hand-holding-heart text-success me-3 fs-4"></i>
+                                <div>
+                                    <h5>Every Gift Matters</h5>
+                                    <p class="mb-0">No contribution is too small - each gift makes a difference</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-receipt text-primary me-3 fs-4"></i>
+                                <div>
+                                    <h5>Financial Transparency</h5>
+                                    <p class="mb-0">We maintain accountability for all funds received</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-praying-hands text-warning me-3 fs-4"></i>
+                                <div>
+                                    <h5>Spiritual Impact</h5>
+                                    <p class="mb-0">Your giving supports both physical and spiritual needs</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-4">
+                                <i class="fas fa-hands-helping text-info me-3 fs-4"></i>
+                                <div>
+                                    <h5>Community Transformation</h5>
+                                    <p class="mb-0">Together we're building a better community for all</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contribution Areas Section -->
+    <section id="contribute" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Ministries Needing Your Support</h2>
+            
+            <div class="row">
+                <!-- Church Building -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <i class="fas fa-church contribution-icon"></i>
+                            <h3 class="contribution-title">Church Building Project</h3>
+                        </div>
+                        <div class="contribution-body">
+                            <p>Help us complete our new church building to accommodate our growing congregation and expand our ministry impact in the community.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Children Church -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <i class="fas fa-child contribution-icon"></i>
+                            <h3 class="contribution-title">Children's Church Ministry</h3>
+                        </div>
+                        <div class="contribution-body">
+                            <p>Support our children's ministry to provide a safe, engaging environment where kids can learn about Jesus in age-appropriate ways.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Church Machines -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <i class="fas fa-tools contribution-icon"></i>
+                            <h3 class="contribution-title">Church Equipment & Machines</h3>
+                        </div>
+                        <div class="contribution-body">
+                            <p>Help us acquire and maintain essential equipment for our ministries including sound systems, generators, and vocational training tools.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Church Media -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="contribution-card">
+                        <div class="contribution-header">
+                            <i class="fas fa-video contribution-icon"></i>
+                            <h3 class="contribution-title">Church Media Ministry</h3>
+                        </div>
+                        <div class="contribution-body">
+                            <p>Support our media outreach through equipment for recording services, live streaming, and creating content to reach more people with the Gospel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Payment Methods</h2>
+            <p class="text-center mb-5">Choose your preferred payment method</p>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="payment-method">
+                        <i class="fas fa-mobile-alt payment-icon"></i>
+                        <h4>Mobile Money</h4>
+                        <p>Pay using MTN Mobile Money or Airtel Money</p>
+                        <div class="payment-details">
+                            <h5>MTN Mobile Money</h5>
+                            <p><strong>Number:</strong> 0758619606</p>
+                            <p><strong>Name:</strong> Mugabo Gabriel</p>
+                            
+                            <h5 class="mt-3">Airtel Money</h5>
+                            <p><strong>Number:</strong> 0782619606</p>
+                            <p><strong>Name:</strong> Mugabo Gabriel</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="payment-method">
+                        <i class="fas fa-university payment-icon"></i>
+                        <h4>Bank Transfer</h4>
+                        <p>Transfer directly to our bank account</p>
+                        <div class="payment-details">
+                            <h5>Bank Details</h5>
+                            <p><strong>Bank:</strong> Centenary Bank</p>
+                            <p><strong>Account Number:</strong> 6020600264</p>
+                            <p><strong>Account Name:</strong> Kibaale Full Gospel Church</p>
+                            <p><strong>Branch:</strong> Masaka Branch</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="payment-method">
+                        <i class="fas fa-money-bill-wave payment-icon"></i>
+                        <h4>Cash Donation</h4>
+                        <p>Give directly at the church office</p>
+                        <div class="payment-details">
+                            <h5>Office Hours</h5>
+                            <p><strong>Monday - Friday:</strong> 8:00 AM - 5:00 PM</p>
+                            <p><strong>Sunday:</strong> Before or after service</p>
+                            <p><strong>Location:</strong> Church Office, Kibaale Full Gospel Church</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="bg-white p-4 rounded shadow-sm text-center">
+                        <h4>Thank You for Your Support</h4>
+                        <p class="mb-0">Your contributions help us continue our mission of transforming lives and communities through the power of the Gospel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Impact Stories</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-quote-left text-muted fa-2x mb-3"></i>
+                            <p class="card-text">"Contributing to the church building has been a blessing to my family. We're excited to see God's house taking shape and know our gifts are building His kingdom."</p>
+                            <h5 class="card-title mt-3">-Mr Bukenya Samuel.</h5>
+                            <p class="text-muted">Church Member</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-quote-left text-muted fa-2x mb-3"></i>
+                            <p class="card-text">"The children's ministry has transformed my kids' lives. I'm happy to support it so other children can experience the same love and learning about Jesus."</p>
+                            <h5 class="card-title mt-3">-Mrs Kawooya.</h5>
+                            <p class="text-muted">Sunday school Teacher</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-quote-left text-muted fa-2x mb-3"></i>
+                            <p class="card-text">"The media ministry allows me to watch services when I can't attend in person. Supporting this work means more people can access God's word."</p>
+                            <h5 class="card-title mt-3">-Mr Kwanga JohnBosco.</h5>
+                            <p class="text-muted">Online Viewer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Location</h4>
+                    <p>Kibaale Full Gospel Church is located in Kibaale Town council, Kibaale Ward, Rakai District.</p>
+                    
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone me-2"></i> +256 782619606</p>
+                    <p><i class="fas fa-phone me-2"></i> +256 758619606</p>
+                    <p><i class="fas fa-phone me-2"></i> +256 783025221</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@kibaalefullgospel.org</p>
+                    <p><i class="fas fa-clock me-2"></i> Sunday Services: 8:30 AM - 12:30 PM</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://www.facebook.com/share/1ARQ3gBTbP/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="http://www.youtube.com/@KibaaleFullGospelChurch-Rakai"><i class="fab fa-youtube"></i></a>
+                        <a href="https://chat.whatsapp.com/Lif49w9wIMqDA4ZQUSFgwe"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html"><i class="fas fa-chevron-right me-2"></i> Home</a></li>
+                        <li class="mb-2"><a href="about.html"><i class="fas fa-chevron-right me-2"></i> About Us</a></li>
+                        <li class="mb-2"><a href="ministries.html"><i class="fas fa-chevron-right me-2"></i> Ministries</a></li>
+                        <li class="mb-2"><a href="events.html"><i class="fas fa-chevron-right me-2"></i> Events</a></li>
+                        <li class="mb-2"><a href="services.html"><i class="fas fa-chevron-right me-2"></i> Services</a></li>
+                        <li class="mb-2"><a href="projects.html"><i class="fas fa-chevron-right me-2"></i> Projects</a></li>
+                        <li class="mb-2"><a href="contributions.html"><i class="fas fa-chevron-right me-2"></i> Contributions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">&copy; 2023 Kibaale Full Gospel Church. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

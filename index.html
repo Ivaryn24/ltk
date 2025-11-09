@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kibaale Full Gospel Church</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #1e1b18;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 70px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 45px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(10, 36, 99, 0.8), rgba(10, 36, 99, 0.6)), 
+                        url('img/church.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            text-align: center;
+        }
+        
+        .church-name {
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            margin-bottom: 1rem;
+        }
+        
+        .church-address {
+            font-weight: 400;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Cards */
+        .vision-card, .mission-card, .values-card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+            overflow: hidden;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+        }
+        
+        .vision-card:hover, .mission-card:hover, .values-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .vision-card {
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+        }
+        
+        .mission-card {
+            background: linear-gradient(135deg, #000428 0%, #004e92 100%);
+        }
+        
+        .values-card {
+            background: linear-gradient(135deg, #0a2463 0%, #3a7bd5 100%);
+            color: #e9ecef;
+        }
+        
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+            color: white;
+        }
+        
+        .card-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: rgba(255,255,255,0.5);
+        }
+        
+        .card-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* Other Sections */
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+        
+        .bible-verse {
+            background-color: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        /* Improved Gallery Section */
+        .gallery-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .gallery-category-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .gallery-category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .gallery-category {
+            margin-bottom: 4rem;
+        }
+        
+        .gallery-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-card img {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-card .card-body {
+            background: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .gallery-card .card-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-card .card-text {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+        
+        .gallery-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Gallery Filter */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            gap: 10px;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer h4 {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+        
+        .footer p, .footer a {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .map-container {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 0.6rem 1.8rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .church-name {
+                font-size: 2rem;
+            }
+            
+            .church-address {
+                font-size: 1.2rem;
+            }
+            
+            .vision-card, .mission-card, .values-card {
+                min-height: 300px;
+                padding: 2rem 1rem;
+            }
+            
+            .navbar-brand img {
+                height: 35px;
+            }
+            
+            .gallery-filter {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 80%;
+                margin-bottom: 10px;
+            }
+        }
+        
+        .profile-pic {
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/lgc.png" alt="Kibaale Full Gospel Church Logo" class="profile-pic">
+                Kibaale Full Gospel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ministries.html">Ministries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contributions.html">Contributions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="church-name display-3">KIBAALE FULL GOSPEL CHURCH</h1>
+            <h3 class="church-address">P.O.BOX 1524 MASAKA UGANDA</h3>
+            <a href="#contact" class="btn btn-primary btn-lg px-4 py-2">Visit Us</a>
+        </div>
+    </section>
+
+    <!-- Bible Verse Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 bible-verse">
+                    <h2 class="mb-4 fw-bold">"BUT YOU SHALL RECEIVE POWER, WHEN THE HOLY SPIRIT HAS COME UPON YOU."</h2>
+                    <h4 class="text-muted mb-4">"NAYE MULIWEEBWA AMAANYI, MWOYO MUTUKUVU BW'ALIMALA OKUBAKKAKO, ERA MUNAABANGA BAJULIRWA BANGE.......OKUTUKIRA DDALA KU NKOMERERO E'ENSI."</h4>
+                    <p class="text-end fst-italic fw-bold">Acts 1:8</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Vision</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="vision-card">
+                        <i class="fas fa-eye card-icon"></i>
+                        <h3 class="card-title">Vision Statement</h3>
+                        <p class="card-text">'A Christ centred and a holistically transforming church for community development.'</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="mission-card">
+                        <i class="fas fa-bullseye card-icon"></i>
+                        <h3 class="card-title">Mission Statement</h3>
+                        <p class="card-text">To positively impact and transform lives of people of all ages through intentional Evangelism, Discipleship, Mentoring and Social welfare promotion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Core Values</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="values-card">
+                        <i class="fas fa-heart card-icon"></i>
+                        <h3 class="card-title">Our Values</h3>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Integrity and Character building</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Team Work</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Sustainable Development</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Family Life Development</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Bible based Ethics</li>
+                                    <li class="mb-3"><i class="fas fa-check-circle me-2"></i> Christ driven</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Improved Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Church Gallery</h2>
+            
+            <!-- Gallery Filter -->
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Photos</button>
+                <button class="filter-btn" data-filter="prayer">Prayer</button>
+                <button class="filter-btn" data-filter="service">Service</button>
+                <button class="filter-btn" data-filter="weddings">Weddings</button>
+            </div>
+            
+            <!-- Prayer Gallery -->
+            <div class="gallery-category" id="prayer-gallery">
+                <h3 class="gallery-category-title">
+                    <i class="fas fa-praying-hands me-2"></i> Prayer Moments
+                </h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="gallery-card" data-category="prayer">
+                            <img src="img/im1 (7).jpg" class="card-img-top" alt="Prayer Gathering">
+                            <div class="card-body">
+                                <i class="fas fa-pray gallery-icon"></i>
+                                <h5 class="card-title">Morning Prayer</h5>
+                                <p class="card-text">Members gathering for morning devotion and prayer</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-card" data-category="prayer">
+                            <img src="img/im1 (6).jpg" class="card-img-top" alt="Intercessory Prayer">
+                            <div class="card-body">
+                                <i class="fas fa-hands-praying gallery-icon"></i>
+                                <h5 class="card-title">Intercessory Prayer</h5>
+                                <p class="card-text">Dedicated prayer warriors interceding for the church and community</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-card" data-category="prayer">
+                            <img src="img/p1.jfif" class="card-img-top" alt="Prayer Circle">
+                            <div class="card-body">
+                                <i class="fas fa-circle gallery-icon"></i>
+                                <h5 class="card-title">Prayer Circle</h5>
+                                <p class="card-text">Members joining hands in prayer for healing and breakthroughs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service Gallery -->
+            <div class="gallery-category" id="service-gallery">
+                <h3 class="gallery-category-title">
+                    <i class="fas fa-church me-2"></i> Church Services
+                </h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="gallery-card" data-category="service">
+                            <img src="img/g1.jfif" class="card-img-top" alt="Sunday Service">
+                            <div class="card-body">
+                                <i class="fas fa-users gallery-icon"></i>
+                                <h5 class="card-title">Sunday Service</h5>
+                                <p class="card-text">Our vibrant Sunday worship services with the congregation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-card" data-category="service">
+                            <img src="img/y1.jfif" class="card-img-top" alt="Youth Service">
+                            <div class="card-body">
+                                <i class="fas fa-music gallery-icon"></i>
+                                <h5 class="card-title">Youth Service</h5>
+                                <p class="card-text">Dynamic worship and teaching tailored for our youth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-card" data-category="service">
+                            <img src="img/k1.jfif" class="card-img-top" alt="Children's Service">
+                            <div class="card-body">
+                                <i class="fas fa-child gallery-icon"></i>
+                                <h5 class="card-title">Children's Church</h5>
+                                <p class="card-text">Engaging Bible lessons and activities for our children</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weddings Gallery -->
+            <div class="gallery-category" id="weddings-gallery">
+                <h3 class="gallery-category-title">
+                    <i class="fas fa-ring me-2"></i> Wedding Celebrations
+                </h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="gallery-card" data-category="weddings">
+                            <img src="img/we1.jfif" class="card-img-top" alt="Church Wedding">
+                            <div class="card-body">
+                                <i class="fas fa-heart gallery-icon"></i>
+                                <h5 class="card-title">Church Wedding</h5>
+                                <p class="card-text">Beautiful wedding ceremonies celebrated in our church</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-card" data-category="weddings">
+                            <img src="img/we2.jfif" class="card-img-top" alt="Wedding Vows">
+                            <div class="card-body">
+                                <i class="fas fa-hand-holding-heart gallery-icon"></i>
+                                <h5 class="card-title">Exchange of Vows</h5>
+                                <p class="card-text">Couples exchanging sacred vows before God and congregation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="gallery-card" data-category="weddings">
+                            <img src="img/im1 (9).jpg" class="card-img-top" alt="Wedding Celebration">
+                            <div class="card-body">
+                                <i class="fas fa-glass-cheers gallery-icon"></i>
+                                <h5 class="card-title">Wedding Celebration</h5>
+                                <p class="card-text">Joyful celebrations following the wedding ceremony</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Location</h4>
+                    <p>Kibaale Full Gospel Church is located in Kibaale Town council, Kibaale Ward, Rakai District.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-phone me-2"></i> +256 782619606</p>
+                    <p><i class="fas fa-phone me-2"></i> +256 758619606</p>
+                    <p><i class="fas fa-phone me-2"></i> +256 783025221</p>
+                    <p><i class="fas fa-envelope me-2"></i> info@kibaalefullgospel.org</p>
+                    <p><i class="fas fa-clock me-2"></i> Sunday Services: 8:30 AM - 12:30 PM</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://www.facebook.com/share/1ARQ3gBTbP/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="http://www.youtube.com/@KibaaleFullGospelChurch-Rakai"><i class="fab fa-youtube"></i></a>
+                        <a href="https://chat.whatsapp.com/Lif49w9wIMqDA4ZQUSFgwe"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html"><i class="fas fa-chevron-right me-2"></i> Home</a></li>
+                        <li class="mb-2"><a href="about.html"><i class="fas fa-chevron-right me-2"></i> About Us</a></li>
+                        <li class="mb-2"><a href="ministries.html"><i class="fas fa-chevron-right me-2"></i> Ministries</a></li>
+                        <li class="mb-2"><a href="services.html"><i class="fas fa-chevron-right me-2"></i> Services</a></li>
+                        <li class="mb-2"><a href="projects.html"><i class="fas fa-chevron-right me-2"></i> Projects</a></li>
+                        <li class="mb-2"><a href="contributions.html"><i class="fas fa-chevron-right me-2"></i> Contributions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-5 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">&copy; 2023 Kibaale Full Gospel Church. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Gallery Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryCards = document.querySelectorAll('.gallery-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide gallery cards based on filter
+                    galleryCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            if (card.getAttribute('data-category') === filterValue) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                    
+                    // Show/hide gallery categories based on filter
+                    const galleryCategories = document.querySelectorAll('.gallery-category');
+                    galleryCategories.forEach(category => {
+                        if (filterValue === 'all') {
+                            category.style.display = 'block';
+                        } else {
+                            if (category.id === `${filterValue}-gallery`) {
+                                category.style.display = 'block';
+                            } else {
+                                category.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

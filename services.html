@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Program - Kibaale Full Gospel Church</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --primary-color: #0a2463;
+            --secondary-color: #3e92cc;
+            --accent-color: #d8315b;
+            --light-color: #f8f9fa;
+            --dark-color: #1e1b18;
+            --gradient-primary: linear-gradient(135deg, #0a3f8a 0%, #1a0a2e 50%, #0a2463 100%);
+            --gradient-nav: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%);
+            --gradient-header: linear-gradient(135deg, rgba(10,36,99,0.8) 0%, rgba(26,10,46,0.8) 100%);
+            --gradient-title: linear-gradient(135deg, rgba(62,146,204,0.8) 0%, rgba(10,36,99,0.8) 100%);
+            --gradient-th: linear-gradient(135deg, var(--accent-color) 0%, #9c1b5a 100%);
+            --gradient-footer: linear-gradient(135deg, var(--accent-color) 0%, #9c1b5a 100%);
+        }
+
+        /* ===== BASE STYLES ===== */
+        body {
+            background: var(--gradient-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            padding-top: 76px; /* Account for fixed navbar */
+        }
+
+        /* ===== NAVIGATION ===== */
+         .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2a6c 100%) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand img {
+            height: 45px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        /* ===== SIDE NAVIGATION ===== */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            overflow-x: hidden;
+            padding-top: 60px;
+            transition: 0.5s;
+        }
+        
+        .sidenav a {
+            padding: 12px 12px 12px 32px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            display: block;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+        
+        .sidenav a:hover {
+            color: var(--primary-color);
+            background-color: rgba(255,255,255,0.3);
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 2rem;
+            margin-left: 50px;
+            color: var(--dark-color);
+        }
+        
+        .menu-icon {
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+
+        /* ===== HEADER SECTION ===== */
+        .header {
+            background: var(--gradient-header);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--accent-color);
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+        }
+
+        /* ===== PROGRAM TITLE ===== */
+        .program-title {
+            background: var(--gradient-title);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 50px;
+            margin: 2rem auto;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .program-title:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== PROGRAM TABLE ===== */
+        .program-table {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .program-table th {
+            background: var(--gradient-th);
+            color: white;
+            font-size: 1.2rem;
+            padding: 1.2rem;
+            text-align: center;
+            border: none;
+        }
+        
+        .program-table td {
+            padding: 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-right: 1px solid rgba(255,255,255,0.1);
+            font-size: 1.1rem;
+            vertical-align: middle;
+        }
+        
+        .program-table tr:nth-child(even) {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .program-table tr {
+            transition: all 0.3s ease;
+        }
+        
+        .program-table tr:hover {
+            background: rgba(62,146,204,0.2);
+            transform: scale(1.01);
+        }
+        
+        .day-highlight {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+        
+        .time-highlight {
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+        
+        .program-icon {
+            font-size: 1.2rem;
+            margin-right: 8px;
+            width: 24px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--gradient-footer);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer h3 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer h5 {
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 768px) {
+            .program-table th, 
+            .program-table td {
+                padding: 0.8rem;
+                font-size: 0.95rem;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .program-title {
+                padding: 1rem;
+                border-radius: 30px;
+                margin: 1.5rem auto;
+            }
+            
+            .program-table tr:hover {
+                transform: none; /* Disable scale effect on mobile */
+            }
+            
+            body {
+                padding-top: 66px;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+         .navbar-brand img {
+                height: 35px;
+            }
+        
+        .profile-pic {
+          width: 70px; /* Adjust the size as needed */
+          height: 70px;
+          border-radius: 50%; /* Make it circular */
+          margin-right: 10px; /* Add some space between the image and text */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/lgc.png" alt="Kibaale Full Gospel Church Logo" class="profile-pic">
+                Kibaale Full Gospel
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ministries.html">Ministries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contributions.html">Contributions</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Side Navigation -->
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html"><i class="fas fa-home program-icon"></i>Home</a>
+        <a href="about.html"><i class="fas fa-info-circle program-icon"></i>About Us</a>
+        <a href="services.html"><i class="fas fa-calendar-alt program-icon"></i>Program</a>
+        <a href="contact.html"><i class="fas fa-envelope program-icon"></i>Contact</a>
+        <a href="ministries.html"><i class="fas fa-hands-praying program-icon"></i>Ministries</a>
+        <a href="events.html"><i class="fas fa-calendar-day program-icon"></i>Events</a>
+        <a href="give.html"><i class="fas fa-donate program-icon"></i>Give</a>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header fade-in">
+        <div class="container">
+            <h1 class="display-4">KIBAALE FULL GOSPEL CHURCH</h1>
+            <p class="lead">P.O.BOX 1524 MASAKA UGANDA</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Program Title -->
+        <div class="program-title fade-in delay-1">
+            <h2><i class="far fa-calendar-alt me-2"></i> WEEKLY PROGRAM</h2>
+        </div>
+
+        <!-- Program Table -->
+        <div class="table-responsive fade-in delay-2">
+            <table class="program-table table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-calendar-day me-2"></i> DAY</th>
+                        <th><i class="fas fa-clock me-2"></i> TIME</th>
+                        <th><i class="fas fa-church me-2"></i> PROGRAM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="day-highlight"><i class="fas fa-praying-hands program-icon"></i> MONDAY</td>
+                        <td class="time-highlight">6:00 - 8:00 PM</td>
+                        <td>INTERCESSION PRAYER</td>
+                    </tr>
+                    <tr>
+                        <td class="day-highlight"><i class="fas fa-house-user program-icon"></i> TUESDAY</td>
+                        <td class="time-highlight">6:00 - 8:00 PM</td>
+                        <td>HOME CELL FELLOWSHIP</td>
+                    </tr>
+                    <tr>
+                        <td class="day-highlight"><i class="fas fa-bible program-icon"></i> WEDNESDAY</td>
+                        <td class="time-highlight">6:00 - 8:00 PM</td>
+                        <td>DISCIPLESHIP / BIBLE STUDY</td>
+                    </tr>
+                    <tr>
+                        <td class="day-highlight"><i class="fas fa-users program-icon"></i> THURSDAY</td>
+                        <td class="time-highlight">6:00 - 8:00 PM</td>
+                        <td>YOUTH FELLOWSHIP</td>
+                    </tr>
+                    <tr>
+                        <td class="day-highlight"><i class="fas fa-moon program-icon"></i> FRIDAY</td>
+                        <td class="time-highlight">6:00 - 10:00 PM</td>
+                        <td>NIGHT PRAYER</td>
+                    </tr>
+                    <tr>
+                        <td class="day-highlight"><i class="fas fa-broom program-icon"></i> SATURDAY</td>
+                        <td class="time-highlight">12:00 - 6:00 PM</td>
+                        <td>
+                            CHURCH CLEANING<br>
+                            PRACTICES FOR DIFFERENT CHOIRS
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="day-highlight"><i class="fas fa-cross program-icon"></i> SUNDAY</td>
+                        <td class="time-highlight">8:00 AM - 1:00 PM</td>
+                        <td>SUNDAY SERVICE</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer fade-in delay-3">
+        <div class="container">
+            <h3><i class="fas fa-cross me-2"></i> WE ARE A LEADERSHIP AND CELL BASED CHURCH</h3>
+            <h5>LEAD A CELL, BE A CELL MEMBER, BUILD GOD'S KINGDOM</h5>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Side navigation functions
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        
+        // Close the sidenav when clicking outside of it
+        document.addEventListener('click', function(event) {
+            const sidenav = document.getElementById('mySidenav');
+            const menuIcon = document.querySelector('.menu-icon');
+            
+            if (sidenav.style.width === '250px' && 
+                !sidenav.contains(event.target) && 
+                event.target !== menuIcon && 
+                !menuIcon.contains(event.target)) {
+                closeNav();
+            }
+        });
+        
+        // Add animation class to elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.visibility = 'visible';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.visibility = 'hidden';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
